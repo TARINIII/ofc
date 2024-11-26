@@ -1367,6 +1367,247 @@ else{
 // output ok
 
 
+// leecode 268
+
+/*
+Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+
+ 
+
+Example 1:
+
+Input: nums = [3,0,1]
+Output: 2
+Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.
+Example 2:
+
+Input: nums = [0,1]
+Output: 2
+Explanation: n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 2 is the missing number in the range since it does not appear in nums.
+Example 3:
+
+Input: nums = [9,6,4,2,3,5,7,0,1]
+Output: 8
+Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.
+
+*/
+
+var nums = [9,6,4,2,3,5,7,0,1];
+
+var nums_Len = nums.length;
+
+var emptyArr = [];
+
+var requiredArr = [];
+
+for(i = 0; i < nums_Len; i++){
+    emptyArr.push(i);
+}
+
+console.log(emptyArr);
+
+for(i = 0; i < emptyArr.length; i++){
+    if(nums.includes(emptyArr[i])){
+        // pass
+    }
+    else{
+        requiredArr.push(emptyArr[i])
+    }
+}
+
+console.log(requiredArr);
+
+// output ok
+
+
+/* leetcode 258
+Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.
+
+ 
+
+Example 1:
+
+Input: num = 38
+Output: 2
+Explanation: The process is
+38 --> 3 + 8 --> 11
+11 --> 1 + 1 --> 2 
+Since 2 has only one digit, return it.
+Example 2:
+
+Input: num = 0
+Output: 0
+*/
+
+function add_digit(n){
+    // convert the the int to string
+    var newString = n.toString();
+    function addFun(newString){
+        var c = 0;
+        for(var i = 0; i < newString.length; i++){
+        c = c + parseInt(newString[i]);
+        }  
+        return c;
+        console.log(c);
+    }
+    var j = addFun(newString);
+    while(j.toString().length > 1){
+        var k = j.toString();
+        var j = addFun(k);
+    }
+
+    console.log(j);
+}
+
+// output ok
+
+
+
+
+/* leetcode 283
+
+Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+Note that you must do this in-place without making a copy of the array.
+
+ 
+
+Example 1:
+
+Input: nums = [0,1,0,3,12]
+Output: [1,3,12,0,0]
+Example 2:
+
+Input: nums = [0]
+Output: [0]
+
+
+*/
+
+function moveZeroes(num){
+
+    // var num = [0,1,0,3,12];
+
+// console.log(num);
+
+var nonEmptyList = [];
+
+var c = 0;
+
+for(i = 0; i < num.length; i++){
+    if(num[i] === 0){
+        // pass
+        c = c + 1
+    }
+    else{
+        nonEmptyList.push(num[i]);
+    }
+}
+
+// console.log(nonEmptyList);
+
+// console.log(c);
+
+for(j = 0; j < c; j++){
+    nonEmptyList.push(0);
+}
+
+console.log(nonEmptyList);
+    
+}
+
+// output ok
+
+
+// leetcode 367
+
+/*
+Given a positive integer num, return true if num is a perfect square or false otherwise.
+
+A perfect square is an integer that is the square of an integer. In other words, it is the product of some integer with itself.
+
+You must not use any built-in library function, such as sqrt.
+
+Example 1:
+
+Input: num = 16
+Output: true
+Explanation: We return true because 4 * 4 = 16 and 4 is an integer.
+Example 2:
+
+Input: num = 14
+Output: false
+Explanation: We return false because 3.742 * 3.742 = 14 and 3.742 is not an integer.
+*/
+
+function numSQrt(n){
+    var c = 0;
+    for(i = 1; i < n; i++){
+        if(i*i === n){
+            c = 1;
+            break
+        }
+        else{
+            // pass
+        }
+    }
+    if(c === 1){
+        console.log("Sqrt exist for the number");
+        console.log(i);
+    }
+    else{
+        console.log("NO SQRT EXIST FOR THE NUMBER");
+    }
+
+    
+
+}
+
+numSQrt(14);
+
+// output ok
+
+// leetcode 504
+/*Given an integer num, return a string of its base 7 representation.
+
+ 
+
+Example 1:
+
+Input: num = 100
+Output: "202"
+Example 2:
+
+Input: num = -7
+Output: "-10"*/
+
+function base7(n){
+    var c = 0;
+    if(n < 0){
+        n = n*-1;
+        c = 1;
+    }
+    else{
+        // pass
+    }
+    var Mylist = [];
+    var k = " ";
+    while(n >= 7){
+        k = n % 7;
+        Mylist.push(k);
+        n = Math.round(n/7);
+    }
+    Mylist.push(n);
+    console.log(Mylist);
+    
+}
+
+
+base7(7);
+
+// output ok
+
+
 
 
 
